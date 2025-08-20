@@ -1,0 +1,65 @@
+{
+  "name": "vite-react-electron-tailwind-template",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "electron/electron.cjs",
+  "description": "Template base para crear apps con Vite + React + Electron + TailwindCSS",
+  "author": "PoncheDeFrutas",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "electron": "wait-on tcp:5173 && cross-env IS_DEV=true electron .",
+    "electron:pack": "electron-builder --dir",
+    "electron:dev": "concurrently -k \"cross-env BROWSER=none npm run dev\" \"wait-on http-get://localhost:5173 && cross-env IS_DEV=true electron .\"",
+    "electron:builder": "electron-builder",
+    "build:for:electron": "tsc --noEmit && cross-env ELECTRON=true vite build",
+    "app:build": "npm run build:for:electron && npm run electron:builder"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.12",
+    "concurrently": "^9.2.0",
+    "cross-env": "^10.0.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tailwindcss": "^4.1.12",
+    "wait-on": "^8.0.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.0",
+    "electron": "^37.3.1",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.39.1",
+    "vite": "^7.1.2"
+  },
+  "build": {
+    "appId": "com.example.app",
+    "productName": "Vite React Electron Tailwind",
+    "copyright": "Copyright © 2025",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets",
+      "output": "dist_electron"
+    }
+  }
+}
