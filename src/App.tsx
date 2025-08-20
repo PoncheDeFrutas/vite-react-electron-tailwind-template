@@ -1,6 +1,10 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
+import typescriptLogo from "./assets/typescript.svg";
+import tailwindcsslogo from "./assets/tailwindcss.svg";
+import electronlogo from "./assets/electron-1.svg";
+
 import "./index.css";
 
 function App() {
@@ -32,10 +36,43 @@ function App() {
                         className="h-24 w-auto p-6 transition hover:drop-shadow-[0_0_2em_#61dafbaa] animate-spin-slow"
                     />
                 </a>
+                <a
+                    href="https://www.typescriptlang.org"
+                    target="TypesScript"
+                    rel="noopener noreferrer"
+                >
+                    <img
+                        src={typescriptLogo}
+                        alt="TypeScript"
+                        className="h-24 w-auto p-6 transition hover:drop-shadow-[0_0_2em_#007accaa]"
+                    />
+                </a>
+                <a
+                    href="https://www.electronjs.org"
+                    target="Electron"
+                    rel="noopener noreferrer"
+                >
+                    <img
+                        src={electronlogo}
+                        alt="Electron"
+                        className="h-24 w-auto p-6 transition hover:drop-shadow-[0_0_2em_#47848f]"
+                    />
+                </a>
+                <a
+                    href="https://tailwindcss.com"
+                    target="Tailwindcss"
+                    rel="noopener noreferrer"
+                >
+                    <img
+                        src={tailwindcsslogo}
+                        alt="Tailwindcss"
+                        className="h-24 w-auto p-6 transition hover:drop-shadow-[0_0_2em_#06b6d4]"
+                    />
+                </a>
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl font-bold mt-6">Vite + React</h1>
+            <h1 className="text-4xl font-bold mt-6">Vite + React + TS + Electron + Tailwindcss</h1>
 
             {/* Card */}
             <div className="bg-zinc-800 p-8 rounded-xl shadow-lg mt-8 inline-block">
