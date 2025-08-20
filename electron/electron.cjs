@@ -83,7 +83,7 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true,
-            preload: path.join(__dirname, "preload.js"),
+            preload: path.join(__dirname, "preload.cjs"),
             sandbox: true,
         },
     });
@@ -97,7 +97,7 @@ function createWindow() {
         return { action: "deny" };
     });
     win.webContents.on("will-navigate", (e, url) => {
-        if (isDev && url.startsWith("http://localhost:")) return;
+        if (isDev && url.startsWith("http://localhost:5173")) return;
         e.preventDefault();
     });
     win.once("ready-to-show", () => win.show());
